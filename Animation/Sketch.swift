@@ -8,16 +8,18 @@ class Sketch : NSObject {
     let canvas : Canvas
     
     // Position of circle
-    var x : Int
+    var offset : Int
     
     // This function runs once
     override init() {
         
         // Create canvas object – specify size
         canvas = Canvas(width: 500, height: 500)
-        
         // Set starting position
-        x = 250
+        offset = 250
+//        // Change the fill to green
+//        canvas.fillColor = Color.green
+        canvas.drawShapesWithBorders = false
         
     }
     
@@ -25,11 +27,35 @@ class Sketch : NSObject {
     func draw() {
         
         // Change position
-        x += 1
+        offset += 1
+//        // Print the value of x in the debug console
+//        print(x)
+//        // Draw an ellipse in the middle of the canvas
+//        canvas.drawEllipse(at: Point(x: x, y: 250), width: 50, height: 50)
+        for y in stride(from: 50, through: 450, by: 100){
+            if y == 450 {
+                canvas.fillColor = .purple
+                canvas.drawEllipse(at: Point(x: offset, y: y), width: 50, height: 50)
+            }else if y == 350 {
+                canvas.fillColor = .orange
+                canvas.drawEllipse(at: Point(x: canvas.width-offset, y: y), width: 50, height: 50)
+            }else if y == 250 {
+                canvas.fillColor = .green
+                canvas.drawEllipse(at: Point(x: offset, y: y), width: 50, height: 50)
+            }else if y == 150 {
+                canvas.fillColor = .blue
+                canvas.drawEllipse(at: Point(x: canvas.width-offset, y: y), width: 50, height: 50)
+            }else {
+                canvas.fillColor = .black
+                canvas.drawEllipse(at: Point(x: offset, y: y), width: 50, height: 50)
+            }
+        }
         
-        // Draw an ellipse in the middle of the canvas
-        canvas.drawEllipse(at: Point(x: x, y: 250), width: 50, height: 50)
+        
         
     }
+    
+    
+    
     
 }
