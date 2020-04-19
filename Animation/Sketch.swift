@@ -10,7 +10,6 @@ class Sketch : NSObject {
     // Position of circle
     var x : Int
     var y : Int
-    var z : Int
     
     // This function runs once
     override init() {
@@ -21,7 +20,6 @@ class Sketch : NSObject {
         // Set starting position
         x = random(from: 0, to: 500)
         y = random(from: 0, to: 500)
-        z = 0
         
         canvas.drawShapesWithBorders = false
         
