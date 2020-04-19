@@ -8,7 +8,8 @@ class Sketch : NSObject {
     let canvas : Canvas
     
     // Position of circle
-    var x : Int
+    var x : Double
+    var y : Double
     
     // This function runs once
     override init() {
@@ -17,7 +18,8 @@ class Sketch : NSObject {
         canvas = Canvas(width: 500, height: 500)
         
         // Set starting position
-        x = 250
+        x = 0
+        y = 0
         
     }
     
@@ -26,9 +28,10 @@ class Sketch : NSObject {
         
         // Change position
         x += 1
-        
+        y = -1/125*x*x+4*x
+        print(y)
         // Draw an ellipse in the middle of the canvas
-//        canvas.drawEllipse(at: Point(x: x, y: -1/125*sqrt(x)+4*x), width: 50, height: 50)
+        canvas.drawEllipse(at: Point(x: x, y: y), width: 50, height: 50)
         
     }
     
