@@ -23,6 +23,9 @@ class Sketch : NSObject {
         x2 = random(from: 0, to: 500)
         y2 = random(from: 0, to: 500)
         
+        canvas.drawShapesWithBorders = true
+        canvas.drawShapesWithFill = false
+        
     }
     
     // This function runs repeatedly, forever, to create the animated effect
@@ -30,9 +33,35 @@ class Sketch : NSObject {
         
         // Change position
         x1 += 1
+        x2 += 1
+        y2 += 1
         
         // Draw an ellipse in the middle of the canvas
-        canvas.drawEllipse(at: Point(x: x1, y: 250), width: 50, height: 50)
+        if x2<500,y2<500 {
+            canvas.drawEllipse(at: Point(x: x2, y: y2), width: 100, height: 100)
+        }else if x2>=500,y2<500 {
+            canvas.drawEllipse(at: Point(x: 1000-x2, y: y2), width: 100, height: 100)
+        }else if x2<500,y2>=500 {
+            canvas.drawEllipse(at: Point(x: x2, y: 1000-y2), width: 100, height: 100)
+        }else if x2>=500,y2>=500 {
+            canvas.drawEllipse(at: Point(x: 1000-x2, y: 1000-y2), width: 100, height: 100)
+        }
+        if x2==1000 {
+            x2 = 0
+        }
+        if y2==1000 {
+            y2 = 0
+        }
+        
+        if x1<500 {
+            canvas.drawEllipse(at: Point(x: x1, y: 250), width: 300, height: 300)
+        }else if x1>500,x1<1000{
+            canvas.drawEllipse(at: Point(x: 1000-x1, y: 250), width: 300, height: 300)
+        }else if x1>1000{
+            x1 = 0
+        }
+        
+        
         
     }
     
