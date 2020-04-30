@@ -35,6 +35,7 @@ class Sketch : NSObject {
         
         // Change position
         x += 1
+        //sin function cannot be created
         y = Int(sin(Degrees(x)))
         
         // Draw an ellipse in the middle of the canvas
