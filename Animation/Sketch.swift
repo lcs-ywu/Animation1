@@ -1,6 +1,13 @@
 import Foundation
 import CanvasGraphics
 
+// Extend the Degrees data type so that we can obtain it's value in radians
+extension Degrees {
+    func toRadians() -> Double {
+        return Double(self) * Double.pi / 180.0
+    }
+}
+
 class Sketch : NSObject {
     
     // NOTE: Every sketch must contain an object of type Canvas named 'canvas'
