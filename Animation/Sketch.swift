@@ -15,8 +15,8 @@ class Sketch : NSObject {
     let canvas : Canvas
     
     // Position of circle
-    var x : Int
-    var y : Int
+    var x : Degrees
+    var sinex : Double
     
     // This function runs once
     override init() {
@@ -26,7 +26,7 @@ class Sketch : NSObject {
         
         // Set starting position
         x = 0
-        y = 0
+        sinex = 0
         
     }
     
@@ -34,12 +34,13 @@ class Sketch : NSObject {
     func draw() {
         
         // Change position
-        x += 1
-        //sin function cannot be created
-        y = Int(sin(Degrees(x)))
+        x += 0.05
+        sinex = Double(sin(1/50*x))
+        print(x)
+        print(sinex)
         
         // Draw an ellipse in the middle of the canvas
-        canvas.drawEllipse(at: Point(x: x, y: 250), width: 20, height: 20)
+        canvas.drawEllipse(at: Point(x: Double(x), y: sinex*100+250), width: 5, height: 5)
         
     }
     
