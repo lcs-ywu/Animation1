@@ -34,7 +34,7 @@ class Sketch : NSObject {
     func draw() {
         
         // Change position
-        x += 0.05
+        x += 0.1
         sinex = Double(sin(1/50*x))
         print(x)
         print(sinex)
