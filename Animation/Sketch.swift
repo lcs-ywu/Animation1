@@ -36,8 +36,8 @@ class Sketch : NSObject {
         // Change position
         x += 0.1
         sinex = Double(sin(1/50*x))
-        print(x)
-        print(sinex)
+//        print(x)
+//        print(sinex)
         
         // Draw an ellipse in the middle of the canvas
         canvas.drawEllipse(at: Point(x: Double(x), y: sinex*100+250), width: 5, height: 5)
